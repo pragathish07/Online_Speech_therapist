@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generation App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(44, 43, 43); 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #generateForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #user_prompt {
+            padding: 10px;
+            font-size: 16px;
+            border: none; /* Remove border */
+            border-radius: 15px;
+            margin-bottom: 10px;
+            width: 600px;
+            box-sizing: border-box;
+            background-color:white; /* Transparent background */
+            margin-top: 20px;
+            
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        #output {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            border: 1px solid #ccc; /* Remove border */
+            border-radius: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+            box-sizing: border-box;
+            overflow-y: scroll; /* Hide vertical scrollbar */
+            height: 800px; /* Adjust the height automatically */
+        }
+
+        .user-message,
+        .bot-message,
+        .loading-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            clear: both;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease; /* Apply fade-in animation */
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+            max-width: 70%;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: left;
+            max-width: 70%;
+            margin-right: auto;
+            float: right; /* Align bot messages to the right */
+        }
+
+        .loading-message {
+            background-color: #f0f0f0;
+            text-align: right;
+            max-width: 70%;
+            margin-right: auto;
+            width: fit-content;
+        }
+
+        .loading-message:after {
+            content: ' .';
+            animation: dotAnimation 1s infinite;
+        }
+
+        @keyframes dotAnimation {
+            0% { content: ' .'; }
+            33% { content: ' ..'; }
+            66% { content: ' ...'; }
+        }
+
+        .user-input-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="output"></div>
+    <form id="generateForm" class="user-input-container">
+        <input type="text" id="user_prompt" name="user_prompt" required placeholder="Message TheraBot" >
+        <button type="button" onclick="generateText()">Generate</button>
+    </form>
+
+    <script>
+        var conversationHistory = [];
+
+        function generateText() {
+            var userPrompt = document.getElementById("user_prompt").value;
+            var outputDiv = document.getElementById("output");
+
+            // Display loading state
+            var loadingMessageHTML = '<div class="loading-message"><strong></strong></div>';
+            conversationHistory.push(loadingMessageHTML);
+            outputDiv.innerHTML = conversationHistory.join('');
+
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: new URLSearchParams({
+                    user_prompt: userPrompt,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Clear input box
+                document.getElementById("user_prompt").value = "";
+
+                // Remove loading message
+                conversationHistory.pop();
+
+                // Store and display user message
+                var userMessageHTML = '<div class="user-message"><strong>You:</strong> ' + userPrompt + '</div>';
+                conversationHistory.push(userMessageHTML);
+
+                // Store and display bot response
+                var botResponseHTML = '<div class="bot-message"><strong>ChatGPT:</strong> ' + data.bot_response + '</div>';
+                conversationHistory.push(botResponseHTML);
+
+                // Update output
+                outputDiv.innerHTML = conversationHistory.join('');
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>

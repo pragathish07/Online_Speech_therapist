@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    .bs-example {
+      margin: 0px;
+      width:50px;
+
+    }
+    .bg-dark {
+    background-color: #212529!important;
+    position: fixed;
+    width: 50px;
+    height:100px;
+}
+    .navbar-brand {
+      font-size: 40px;
+      font-family: sans-serif;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background-color: #89ABE3; height:75px">
+    <a style="color:black;text-decoration: none; " href="/"><font face = "Comic sans MS" size ="18">TheroKid</font><br /></a>  
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav">
+          <a style="
+          padding-left: 30px;
+      " href="/" class="nav-item nav-link active"><font face = "Comic sans MS" size ="3">Home</font></a>
+          <a href="/teacher/teacherclick" class="nav-item nav-link" ><font face = "Comic sans MS" size ="3">Doctor</font></a>
+          <a href="/student/studentclick" class="nav-item nav-link"><font face = "Comic sans MS" size ="3">Parent</font></a>
+          <a href="/adminclick" class="nav-item nav-link"><font face = "Comic sans MS" size ="3">Admin</font></a>
+          
+
+
+        </div>
+
+        <div class="navbar-nav">
+          <a href="/aboutus" class="nav-item nav-link">About Us</a>
+          <a href="/contactus" class="nav-item nav-link">Contact Us</a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+</body>
+
+</html>

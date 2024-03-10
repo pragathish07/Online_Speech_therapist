@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Speech Therapy Booking</title>
+   
+    <style>
+        /* Your provided CSS styles */
+        /* Paste your CSS styles here */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    
+  --pink: #f7496f;
+    --black: #1d1c1c;
+    --blue: #89abe3;
+    --white: #fff;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section{
+  padding: 3rem 7%;
+}
+
+.heading{
+  font-size: 4rem;
+  color: var(--black);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 6rem;
+}
+
+.heading span{
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+.btn{
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .8rem 3rem;
+  border-radius: .5rem;
+  border: .2rem solid var(--pink);
+  color: var(--pink);
+  background: none;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: var(--pink);
+  color: var(--white);
+}
+
+/* header */
+
+.header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .logo i{
+  color: var(--pink);
+}
+
+.header .navbar a{
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: var(--black);
+}
+
+.header .navbar a:hover,
+.header .icons div:hover{
+  color: var(--pink);
+}
+
+.header .icons div{
+  font-size: 2.5rem;
+  margin-left: 1.7rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+#menu-btn{
+  display: none;
+}
+
+.header .login-form{
+  position: absolute;
+  top: 110%; right: -110%;
+  width: 35rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  border-radius: .5rem;
+  background: var(--white);
+  text-align: center;
+}
+
+.header .login-form.active{
+  right: 2rem;
+  transition: .4s linear;
+}
+
+.header .login-form h3{
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.header .login-form .box{
+  width: 100%;
+  margin: .7rem 0;
+  background: #eee;
+  border-radius: .5rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+.header .login-form p{
+  font-size: 1.4rem;
+  padding: .5rem 0;
+  color: var(--light-color);
+}
+
+.header .login-form p a{
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+/* header ends */
+
+/* home */
+
+.home{
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.home .content{
+  flex: 1 1 40rem;
+  padding-top: 6.5rem;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  color: var(--black);
+}
+
+.home .content h3 span{
+  color: var(--pink);
+}
+
+.home .content p{
+  font-size: 1.7rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+.home .image{
+  flex: 1 1 40rem;
+}
+
+.home .image img{
+  width: 100%;
+  padding: 4rem;
+}
+
+.custom-shape-divider-bottom-1684324473 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1684324473 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 107px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1684324473 .shape-fill {
+  fill: var(--blue);
+}
+
+/* end */
+
+/* footer */
+
+.footer{
+  background: var(--blue);
+}
+
+.footer .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3{
+  font-size: 2.2rem;
+  color: var(--pink);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box p{
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+.footer .box-container .box a{
+  display: block;
+  font-size: 1.4rem;
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover{
+  color: var(--pink);
+}
+
+.footer .box-container .box a i{
+  padding-right: .5rem;
+  color: var(--pink);
+}
+
+.footer .credit{
+  margin-top: 2.5rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  border-top: .1rem solid rgba(0,0,0,.3);
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.footer .credit span{
+  color: var(--pink);
+}
+
+/* end */
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*q and a*/
+.qa {
+    padding: 3rem 7%;
+}
+
+.qa h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.accordion-btn {
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-btn:hover {
+    background-color: var(--pink);
+}
+
+.answer {
+    display: none;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.question.active .answer {
+    display: block;
+}
+
+
+/* media query */
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .header{
+    padding: 2rem 3rem;
+  }
+
+  section{
+    padding: 3rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  #menu-btn{
+    display: inline-block;
+  }
+
+  .header .navbar{
+    position: absolute;
+    top: 110%; right: -110%;
+    width: 30rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: var(--white);
+  }
+
+  .header .navbar.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+
+  .header .navbar a{
+    font-size: 2rem;
+    margin: 2rem 2.5rem;
+    display: block;
+  }
+
+  .home .content h3{
+    font-size: 4.5rem;
+  }
+
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+  .home .content h3{
+    font-size: 3.5rem;
+  }
+}
+
+
+/* Integrated CSS styling from provided code */
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section{
+  padding: 3rem 7%;
+}
+
+.heading{
+  font-size: 4rem;
+  color: var(--black);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 6rem;
+}
+
+.heading span{
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+.btn{
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .8rem 3rem;
+  border-radius: .5rem;
+  border: .2rem solid var(--pink);
+  color: var(--pink);
+  background: none;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: var(--pink);
+  color: var(--white);
+}
+
+
+
+
+/* media query */
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .header{
+    padding: 2rem 3rem;
+  }
+
+  section{
+    padding: 3rem;
+  }
+
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+  .home .content h3{
+    font-size: 3.5rem;
+  }
+}
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition:  1s;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+
+
+    </style>
+     <script src="https://kit.fontawesome.com/5493ae10bb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">TheroKid</div>
+        
+        
+        <nav class="navbar">
+          <a href="index.html">Home</a>
+          <a href="#">About us</a>
+          <a href="#">Services</a>
+         
+        <a href="#">Blog</a>
+          <a href="#">Contact</a>
+          <a href="booknow.html">Book now</a>
+        </nav>
+        <div class="login-form">
+            <!-- Your login form content here -->
+        </div>
+    </header>
+
+    <section class="home ">
+        <div class="container hidden">
+            <div class="content hidden">
+                <h3>Online Speech Therapy Booking</h3>
+                <p>Provide information about your speech therapy services here.</p>
+                <a href="#" class="btn">Book Appointment</a>
+            </div>
+            <div class="image hidden">
+                <img src="https://www.sgvspeechtherapy.com/wp-content/uploads/2019/08/Cute-little-boy-at-speech-therapist-office-1135829095_726x484.jpg" class="img-fluid" alt="...">
+          </div>
+
+            </div>
+    </section>
+
+    <!-- Other sections (About, Services, Pricing, Contact, etc.) go here -->
+    <section class="qa">
+        <div class="container hidden">
+            <h3>Frequently Asked Questions</h3>
+            <div class="accordion hidden">
+                <div class="question">
+                    <button class="accordion-btn">What is speech therapy?
+
+                    </button>
+                    <div class="answer">
+                        <p>Speech therapy is specialized treatment to improve communication skills, covering speech, language, voice, fluency, and social communication.
+                        </p>
+                    </div>
+                </div>
+                <div class="question">
+                  <button class="accordion-btn">What are the common reasons someone might need speech therapy?
+                  </button>
+                  <div class="answer">
+                      <p>Common reasons include speech sound disorders, language issues, stuttering, voice problems, cognitive-communication disorders, and social communication difficulties.
+                      </p>
+                  </div>
+              </div>
+              <div class="question">
+                <button class="accordion-btn">How is a speech therapy session typically structured?
+                </button>
+                <div class="answer">
+                    <p>Sessions include assessment, goal setting, intervention (exercises and activities), and progress monitoring.</p>
+                </div>
+            </div>
+            <div class="question">
+              <button class="accordion-btn">What are some techniques used in speech therapy?
+              </button>
+              <div class="answer">
+                  <p>Techniques include articulation drills, language exercises, voice therapy, fluency shaping, cognitive-communication strategies, AAC methods, and social skills training.
+                  </p>
+              </div>
+          </div>
+          <div class="question">
+            <button class="accordion-btn">How long does speech therapy typically last?
+            </button>
+            <div class="answer">
+                <p>Duration varies based on severity, progress, age, and motivation, ranging from weeks to ongoing support over years.
+                </p>
+            </div>
+        </div>
+        <div class="question">
+          <button class="accordion-btn">
+            What age groups can benefit from speech therapy?
+            </button>
+          <div class="answer">
+              <p>All ages benefit, addressing speech delays, language disorders, voice issues, or aphasia.</p>
+          </div>
+      </div>
+                <!-- Add more questions and answers as needed -->
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="box-container">
+              <div class="box">
+                <h3> <i class="fas fa-school"></i> TheroKid </h3>
+                <p>Unlock The Barriers Using TheroKid!</p>
+            </div>
+                <div class="box">
+                    <h3>Contact Us</h3>
+                    <p>Email: therokid@gmail.com</p>
+                    <p>Phone: +91 9940023788</p>
+                </div>
+            </div>
+        </div>
+        <div class="credit">Copyright &copy; 2024<span> TheroKid</span></div>
+    </footer>
+    <script defer>
+        const accordionBtns = document.querySelectorAll('.accordion-btn');
+    
+        accordionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const question = btn.parentElement;
+                const isActive = question.classList.contains('active');
+                
+                // Close all questions
+                accordionBtns.forEach(item => {
+                    item.parentElement.classList.remove('active');
+                    item.nextElementSibling.style.display = 'none';
+                });
+                
+                // Toggle active class and show/hide answer
+                if (!isActive) {
+                    question.classList.add('active');
+                    btn.nextElementSibling.style.display = 'block';
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) =>{
+    entries.forEach((entry) =>{
+        console.log(entry)
+        if (entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else{
+            entry.target.classList.remove('show');
+        }
+         
+    });
+});
+
+
+
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((el)=> observer.observe(el));
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheroKid</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    
+    --pink: #EA738D;
+    --black: #1d1c1c;
+    --blue: #89abe3;
+    --white: #fff;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section{
+  padding: 3rem 7%;
+}
+
+.heading{
+  font-size: 4rem;
+  color: var(--black);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 6rem;
+}
+
+.heading span{
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+
+:root {
+  --pink: #ff69b4; /* replace with your desired pink color code */
+}
+
+.btn {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 10px; /* Adjust padding as needed */
+  border-radius: 0.5rem;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  background: none;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+  text-align: center; /* Center text horizontally */
+  line-height: 30px; /* Center text vertically */
+}
+
+
+
+.btn:hover{
+  background: var(--pink);
+  color: var(--white);
+}
+
+/* header */
+
+.header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .logo i{
+  color: var(--pink);
+}
+
+.header .navbar a{
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: var(--black);
+}
+
+.header .navbar a:hover,
+.header .icons div:hover{
+  color: var(--pink);
+}
+
+.header .icons div{
+  font-size: 2.5rem;
+  margin-left: 1.7rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+#menu-btn{
+  display: none;
+}
+
+.header .login-form{
+  position: absolute;
+  top: 110%; right: -110%;
+  width: 35rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  border-radius: .5rem;
+  background: var(--white);
+  text-align: center;
+}
+
+.header .login-form.active{
+  right: 2rem;
+  transition: .4s linear;
+}
+
+.header .login-form h3{
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.header .login-form .box{
+  width: 100%;
+  margin: .7rem 0;
+  background: #eee;
+  border-radius: .5rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+.header .login-form p{
+  font-size: 1.4rem;
+  padding: .5rem 0;
+  color: var(--light-color);
+}
+
+.header .login-form p a{
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+/* header ends */
+
+/* home */
+
+.home{
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.home .content{
+  flex: 1 1 40rem;
+  padding-top: 6.5rem;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  color: var(--black);
+}
+
+.home .content h3 span{
+  color: #EA738D;
+}
+
+.home .content p{
+  font-size: 1.7rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+.home .image{
+  flex: 1 1 40rem;
+}
+
+.home .image img{
+  width: 100%;
+  padding: 4rem;
+}
+
+.custom-shape-divider-bottom-1684324473 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1684324473 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 107px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1684324473 .shape-fill {
+  fill: #89ABE3;
+}
+
+/* end */
+
+/* about us */
+
+.about{
+  background:#89ABE3;
+}
+
+.about .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about .row .image{
+  flex: 1 1 50rem;
+}
+
+.about .row .image img{
+  width: 100%;
+  height: 100%;
+}
+
+.about .row .content{
+  flex: 1 1 40rem;
+}
+
+.about .row .content h3{
+  font-size: 3.5rem;
+  color: var(--white);
+  line-height: 1.5;
+}
+
+.about .row .content p{
+  font-size: 1.4rem;
+  color: var(--white);
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+/* end */
+
+/* education */
+
+.education .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+.education .box-container .box{
+  background: var(--white);
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow);
+  outline: .1rem solid rgba(0,0,0,.1);
+  outline-offset: -1rem;
+  overflow: hidden;
+}
+
+.education .box-container .box:hover img{
+  transform: scale(1.1);
+}
+
+.education .box-container .box:nth-child(odd){
+  background: #89ABE3;
+}
+
+.education .box-container .box:nth-child(2){
+  background: #EA738D;
+}
+
+.education .box-container .box h3{
+  font-size: 2.5rem;
+  color: var(--white);
+  line-height: 1.8;
+  padding-top: 3rem;
+  padding-left: 2rem;
+}
+
+.education .box-container .box p{
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--white);
+  padding: 1rem 2rem;
+}
+
+.education .box-container .box img{
+  width: 100%;
+  height: 66%;
+}
+
+/* end */
+
+/* teacher */
+
+.teacher{
+  background: url(images/teacher-bg.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.teacher .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+.teacher .box-container .box{
+  background: var(--white);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 2rem;
+}
+
+.teacher .box-container .box img{
+  height: 30rem;
+}
+
+.teacher .box-container .box h3{
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.teacher .box-container .box p{
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-bottom: 1rem;
+}
+
+.teacher .box-container .box .share i{
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  border-radius: .5rem;
+  background: none;
+  color: var(--blue);
+  border: .1rem solid var(--blue);
+  margin-left: .5rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.teacher .box-container .box .share i:hover{
+  color: var(--white);
+  border: .1rem solid #EA738D;
+  background: #EA738D;
+}
+
+/* end */
+
+/* activities */
+
+.activities .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.activities .box-container .box{
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 2rem;
+  outline: .1rem solid rgba(0,0,0,.1);
+  outline-offset: -1rem;
+}
+
+.activities .box-container .box img{
+  height: 8rem;
+}
+
+.activities .box-container .box:hover img{
+  transform: scale(1.1);
+}
+
+.activities .box-container .box h3{
+  font-size: 2.2rem;
+  padding: 2rem 0;
+  color: var(--black);
+}
+
+/* end */
+
+/* gallery */
+
+.gallery{
+  background: url(images/gallery-bg.png) no-repeat;
+  background-size: cover; 
+}
+
+.gallery .gallery-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.gallery .gallery-container .box{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .gallery-container .box img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery .gallery-container .box:hover img{
+  transform: scale(1.2);
+}
+
+.gallery .gallery-container .box .icon{
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.4);
+  display: none;
+}
+
+.gallery .gallery-container .box .icon i{
+  font-size: 6rem;
+  color: var(--white);
+}
+
+.gallery .gallery-container .box:hover .icon{
+  display: flex;
+}
+
+/* end */
+
+/* contact */
+
+.contact .icons-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+  gap: 1.5rem;
+}
+
+.contact .icons-container .icons{
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 2rem;
+  text-align: center;
+  outline: .1rem solid rgba(0,0,0,.1);
+  outline-offset: -1rem;
+}
+
+.contact .icons-container .icons i{
+  font-size: 2.5rem;
+  height: 6rem;
+  width: 6rem;
+  color: var(--white);
+  line-height: 6rem;
+  border-radius: 50%;
+  background: var(--pink);
+}
+
+.contact .icons-container .icons h3{
+  font-size: 2.2rem;
+  padding: 1rem 0;
+  color: var(--black);
+}
+
+.contact .icons-container .icons p{
+  font-size: 1.5rem;
+  line-height: 2;
+  color: var(--light-color);
+}
+
+.contact .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.contact .row .image{
+  flex: 1 1 20rem;
+}
+
+.contact .row .image img{
+  width: 100%;
+}
+
+.contact .row form{
+  flex: 1 1 50rem;
+  padding: 2rem;
+  border: 0.1rem solid rgba(0,0,0,.4);
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+}
+
+.contact .row form h3{
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  color: var(--black);
+}
+
+.contact .row form .inputBox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact .row form .inputBox input{
+  width: 49%;
+}
+
+.contact .row form .inputBox input,
+.contact .row form textarea{
+  font-size: 1.6rem;
+  border: 0.1rem solid rgba(0,0,0,.3);
+  border-radius: 0.5rem;
+  padding: 1rem 1.2rem;
+  color: var(--black);
+  margin: .7rem 0;
+}
+
+.contact .row form .inputBox input:focus,
+.contact .row form textarea:focus{
+  border: 0.1rem solid #EA738D;
+}
+
+.contact .row form textarea{
+  height: 15rem;
+  width: 100%;
+  resize: none;
+}
+
+/* end */
+
+/* footer */
+
+.footer{
+  background: #89ABE3;
+}
+
+.footer .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3{
+  font-size: 2.2rem;
+  color: #EA738D;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box p{
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+.footer .box-container .box a{
+  display: block;
+  font-size: 1.4rem;
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover{
+  color: var(--pink);
+}
+
+.footer .box-container .box a i{
+  padding-right: .5rem;
+  color: var(--pink);
+}
+
+.footer .credit{
+  margin-top: 2.5rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  border-top: .1rem solid rgba(0,0,0,.3);
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.footer .credit span{
+  color: var(--pink);
+}
+
+/* end */
+
+/* media query */
+
+@media (max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+
+  .header{
+    padding: 2rem 3rem;
+  }
+
+  section{
+    padding: 3rem;
+  }
+
+}
+
+@media (max-width:768px){
+
+  #menu-btn{
+    display: inline-block;
+  }
+
+  .header .navbar{
+    position: absolute;
+    top: 110%; right: -110%;
+    width: 30rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    background: var(--white);
+  }
+
+  .header .navbar.active{
+    right: 2rem;
+    transition: .4s linear;
+  }
+
+  .header .navbar a{
+    font-size: 2rem;
+    margin: 2rem 2.5rem;
+    display: block;
+  }
+
+  .home .content h3{
+    font-size: 4.5rem;
+  }
+
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 50%;
+  }
+  .home .content h3{
+    font-size: 3.5rem;
+  }
+}
+
+
+
+     </style>
+</head>
+<body>
+
+  <!-- All your HTML content goes here initially -->
+  <!-- header, sections, footer, etc. -->
+  
+  <!-- header section starts -->
+
+  {% include "quiz/navbar.html" %}
+  <header class="header">
+    {% include "quiz/navbar.html" %}
+  </header>
+
+  <!-- header section ends -->
+
+  <!-- home section starts -->
+
+  <section class="home" id="home">
+
+      <div class="content hidden">
+          
+          <p>Unlock the barriers using TheroKid!</p>
+          <h3>Online Speech and Voice Therapy <span>for Children & Adults</span></h3>
+          <a href="#"><button>Book Now</button></a>
+
+
+      </div>
+
+      <div class="image hidden">
+          <img src="https://img.freepik.com/free-vector/creative-speech-therapy-illustration_23-2149229883.jpg?w=740&t=st=1709006451~exp=1709007051~hmac=f42f0b59835474f9a591d9825ce0da9c93bbec0045389e5240296169f56dfc4d" alt="">
+      </div>
+
+      <div class="custom-shape-divider-bottom-1684324473 hidden">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+          </svg>
+      </div>
+
+  </section>
+
+  <!-- home section ends -->
+
+  <!-- about us section starts -->
+
+  <section class="about hidden" id="about">
+
+      <h1 class="heading hidden"> <span>about</span> us</h1>
+
+      <div class="row hidden">
+
+          <div class="image hidden">
+              <img src="https://img.freepik.com/free-vector/hand-drawn-speech-therapy-scenes-collection_52683-78405.jpg" alt="">
+          </div>
+
+          <div class="content hidden">
+              <h3>Exploring, Growing, And Thriving Together</h3>
+              <p>We are dedicated to revolutionizing speech therapy interventions by harnessing the power of AI. Our mission is to make speech therapy inclusive and accessible, breaking free from the constraints of traditional settings. </p>
+              <p>Whether you're seeking support for yourself or a loved one, our platform offers innovative solutions tailored to individual needs. Say goodbye to limitations and embrace a new era of effective communication. Join us as we pave the way for a brighter, more inclusive future.</p>
+              <a href="#" class="btn">read more</a>
+          </div>
+
+      </div>
+
+  </section>
+
+  <!-- about us section ends -->
+
+  <!-- education section start -->
+
+  <section class="education hidden" id="education">
+
+      <h1 class="heading hidden">Our <span>services</span></h1>
+
+      <div class="box-container hidden">
+
+          <div class="box hidden">
+              <h3>Speech Therapy</h3>
+              <p>The goals of speech therapy include improving pronunciation, strengthening the muscles used in speech, and learning to speak correctly.</p>
+              <img src="https://assets-v2.lottiefiles.com/a/6b665882-1166-11ee-a690-cb5400d562a2/6veG6GNcTv.gif" alt="">
+          </div>
+
+          <div class="box hidden">
+              <h3>Screening Test</h3>
+              <p>Detect potential health disorders or diseases in people who do not have any symptoms of disease.</p>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7bFUdUlHsKiMIaLfPNGPaxsSn0p2werVTMA&usqp=CAU" alt="">
+          </div>
+
+          <div class="box hidden">
+              <h3>Book you Appointment</h3>
+              <p>with your test scores we give you a platform to connect with highly experienced doctors.</p>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8F-QQw16AuV19he5I-s6U2YM6jJ9HnPFUYQ&usqp=CAU" alt="">
+          </div>
+
+      </div>
+
+  </section>
+
+ 
+  <!-- contact section starts -->
+
+  <section class="contact hidden" id="contact">
+
+      <h1 class="heading"> <span>contact</span> us</h1>
+
+      <div class="icons-container hidden">
+
+         
+
+          <div class="icons hidden">
+              <i class="fas fa-envelope"></i>
+              <h3>email</h3>
+              <p>therokid@gmail.com</p>
+              
+          </div>
+
+          <div class="icons hidden">
+              <i class="fas fa-phone"></i>
+              <h3>phone number</h3>
+              <p>+91 9940023788</p>
+              <p>+91 8939430409</p>
+          </div>
+
+      </div>
+
+      <div class="row hidden">
+
+          <div class="image hidden">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKMD1cFDPycaI-J3k4KLhL97Ddo3xbZD_UlQ&usqp=CAU" alt="">
+              <img src="" alt="">
+          </div>
+
+          <form action="">
+              <h3>get in touch</h3>
+              <div class="inputBox hidden">
+                  <input type="text" placeholder="your name">
+                  <input type="email" placeholder="your email">
+              </div>
+              <div class="inputBox hidden">
+                  <input type="number" placeholder="your number">
+                  <input type="text" placeholder="your subject">
+              </div>
+              <textarea placeholder="your message" cols="30" rows="10"></textarea>
+              <input type="submit" value="send message" class="btn">
+          </form>
+
+      </div>
+
+  </section>
+
+  <!-- contact section ends -->
+
+  <!-- footer section starts -->
+
+  <section class="footer">
+
+      <div class="box-container">
+
+          <div class="box">
+              <h3> <i class="fas fa-school"></i> TheroKid </h3>
+              <p>Unlock The Barriers Using TheroKid!</p>
+          </div>
+
+          
+          <div class="box">
+              <h3>category</h3>
+              <a href="#home"> <i class="fas fa-caret-right"></i> Home</a>
+              
+              <a href="#education"> <i class="fas fa-caret-right"></i> Services</a>
+              
+              <a href="#contact"> <i class="fas fa-caret-right"></i> Contact</a>
+          </div>
+
+          <div class="box">
+              
+              <h3></h3>
+              <a href="#about"> <i class="fas fa-caret-right"></i> About Us</a>
+              
+              <a href="#gallery"> <i class="fas fa-caret-right"></i> Blog</a>
+             
+          </div>
+
+          
+      </div>
+
+      <div class="credit">Copyright &copy; 2024<span> TheroKid</span></div>
+
+  </section>
+  <!-- footer section ends -->
+
+
+  <!-- JavaScript to dynamically change content -->
+  <script defer>
+      const observer = new IntersectionObserver((entries) =>{
+  entries.forEach((entry) =>{
+      console.log(entry)
+      if (entry.isIntersecting){
+          entry.target.classList.add('show');
+      } else{
+          entry.target.classList.remove('show');
+      }
+       
+  });
+});
+
+
+
+
+      const hiddenElements = document.querySelectorAll(".hidden");
+      hiddenElements.forEach((el)=> observer.observe(el));
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+  
+</body>
+</html>

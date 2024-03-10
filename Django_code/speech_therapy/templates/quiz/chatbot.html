@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generation App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #generateForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #user_prompt {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        .user-message,
+        .bot-message,
+        .loading-message {
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .user-message {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+            width: fit-content;
+        }
+
+        /* give me blue color hexcode thats in iphone */
+        .bot-message {
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+            width: fit-content;
+        }
+
+        .loading-message {
+            background-color: #ddd;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="generateForm">
+        <label for="user_prompt">User Input:</label>
+        <input type="text" id="user_prompt" name="user_prompt" required >
+        <button type="button" onclick="generateText()">Generate</button>
+    </form>
+    <div id="output" style="overflow-y: scroll;height: 200px;"></div>
+
+    <script>
+        var conversationHistory = [];
+
+        function generateText() {
+            var userPrompt = document.getElementById("user_prompt").value;
+            var outputDiv = document.getElementById("output");
+
+            // Display loading state
+            var loadingMessageHTML = '<div class="loading-message"><strong>Loading...</strong></div>';
+            conversationHistory.push(loadingMessageHTML);
+            outputDiv.innerHTML = conversationHistory.join('');
+
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: new URLSearchParams({
+                    user_prompt: userPrompt,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Clear input box
+                document.getElementById("user_prompt").value = "";
+
+                // Remove loading message
+                conversationHistory.pop();
+
+                // Store and display user message
+                var userMessageHTML = '<div class="user-message"><strong>User:</strong> ' + userPrompt + '</div>';
+                conversationHistory.push(userMessageHTML);
+
+                // Store and display bot response
+                var botResponseHTML = '<div class="bot-message"><strong>Bot Response:</strong> ' + data.bot_response + '</div>';
+                conversationHistory.push(botResponseHTML);
+
+                // Update output
+                outputDiv.innerHTML = conversationHistory.join('');
+            });
+        }
+    </script>
+</body>
+</html>
