@@ -54,7 +54,7 @@ Welcome to our platform! Here, we integrate cutting-edge machine learning techno
 
 
  Innovating Speech Therapy: Introducing Groundbreaking Tools for Assessment and Treatment,
- Intel® oneAPI is used to optimize the models to provide accurate and efficient predictio
+ Intel® oneAPI is used to optimize the models to provide accurate and efficient prediction
 
 
 ## Screensots
@@ -70,16 +70,6 @@ Welcome to our platform! Here, we integrate cutting-edge machine learning techno
 <br>
 <br>
 
-
-### Social Impact
-The "Diagnosify - Brain Disease Classification" project has the potential to create significant social impact in several ways:
-
-1. Early Detection and Treatment: By accurately predicting diseases like brain tumors, Alzheimer's, and Parkinson's Disease, the project can enable early detection and intervention. Early diagnosis often leads to more effective treatment options and improved patient outcomes.
-2. Healthcare Access: Diagnosify can extend medical expertise to underserved and remote areas where access to specialized healthcare may be limited. This democratization of medical diagnosis can ensure that individuals in various geographical locations receive timely and accurate predictions.
-3. Reduced Misdiagnosis: Machine learning algorithms used in the project can help reduce instances of misdiagnosis by analyzing intricate patterns that might be challenging for human experts to identify. This can prevent unnecessary treatments and procedures while increasing the accuracy of diagnoses.
-
-4. Collaborative Healthcare: The project promotes collaboration between medical professionals and technology. This synergy can lead to a more comprehensive understanding of diseases and their characteristics, fostering a collaborative approach to healthcare.
-<br>
 ### Built With 
 Our platform harnesses the power of Django for backend infrastructure, Hugging Face for advanced natural language processing, Python for seamless integration, and Jupyter for interactive model development. Leveraging Intel's cloud infrastructure ensures optimal performance, empowering us to deliver an innovative solution for speech therapy with tailored functionalities for diverse users.
 
@@ -115,15 +105,32 @@ python
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, AutoProcessor
 
-## Import necessary libraries and modules
 
-## Define BitsAndBytesConfig with custom settings
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.bfloat16
+## usage of Intel's neural-chat model
+
+we used neural-chat model for our chat bot 
+and we used RAG(retrieval augmented generation) for further fine tuning the model and we used chromaDB as a vector database for RAG to fine tune itself
+
+```
+model_name = "BAAI/bge-large-en"
+model_kwargs = {'device': 'cpu'}
+encode_kwargs = {'normalize_embeddings': False}
+embeddings = HuggingFaceBgeEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
 )
+loader = DirectoryLoader('data/', glob="**/*.pdf", show_progress=True, loader_cls=PyPDFLoader)
+documents = loader.load()
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+texts = text_splitter.split_documents(documents)
+vector_store = Chroma.from_documents(texts, embeddings, collection_metadata={"hnsw:space": "cosine"}, persist_directory="stores/pet_cosine")
+print("Vector Store Created.......")
+
+```
+  splits the data into vectors and stores into vectorDB for the finetuning the data
+
+  
 
 ## Define model identifier
 model_id = "Intel/neural-chat-7b-v3-1"
@@ -133,30 +140,6 @@ model = AutoModelForCausalLM.from_pretrained(model_id)
 
 <br>
 <br>
-
-<!-- Intel one api -->
-# Intel® oneAPI
-Intel® OneAPI is a comprehensive development platform for building high-performance, cross-architecture applications. It provides a unified programming model, tools, and libraries that allow developers to optimize their applications for Intel® CPUs, GPUs, FPGAs, and other hardware. Intel® OneAPI includes support for popular programming languages like C++, Python, and Fortran, as well as frameworks for deep learning, high-performance computing, and data analytics. With Intel® OneAPI, developers can build applications that can run on a variety of hardware platforms, and take advantage of the performance benefits of Intel® architectures.
-<!-- Use of oneAPI in our project -->
-
-## Use of oneAPI in our project
-
-In this section, we'll outline how we utilized various Intel® oneAPI libraries and frameworks to enhance the performance and efficiency of our models.
-
-* *Intel® oneAPI Deep Neural Network Library (oneDNN)*
-
-To optimize deep learning applications on Intel® CPUs and GPUs, we integrated the oneAPI Deep Neural Network Library (oneDNN). To enable oneDNN optimizations for TensorFlow* running on Intel® hardware, we used the following code:
-
-python
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '1'
-os.environ['DNNL_ENGINE_LIMIT_CPU_CAPABILITIES'] = '0'
-
-
-
-
-#### Model Specifics and Usage
-Alzheimer's Disease Prediction and Brain Tumor Detection models are TensorFlow-based. For these, We used the Intel® Extension for TensorFlow* from the AI Kit, oneDAL, oneDPL and oneDNN to enhance performance. Parkinson's Disease Detector was optimized using the Intel® Extension for Scikit-learn from oneDAL.
 
 ### Performance Comparison
 The following graphs illustrate the substantial performance improvements 
@@ -170,7 +153,40 @@ The following graphs illustrate the substantial performance improvements
 </a><br><br>
 
 
-<!-- What it does -->
+<!-- Intel one api -->
+# Intel® oneAPI
+Intel® OneAPI is a comprehensive development platform for building high-performance, cross-architecture applications. It provides a unified programming model, tools, and libraries that allow developers to optimize their applications for Intel® CPUs, GPUs, FPGAs, and other hardware. Intel® OneAPI includes support for popular programming languages like C++, Python, and Fortran, as well as frameworks for deep learning, high-performance computing, and data analytics. With Intel® OneAPI, developers can build applications that can run on a variety of hardware platforms, and take advantage of the performance benefits of Intel® architectures.
+<!-- Use of oneAPI in our project -->
+
+## Use of oneAPI's oneDNN in our project
+
+In this section, we utilized Intel® oneAPI libraries to enhance the performance and efficiency of our models.
+
+* *Intel® oneAPI Deep Neural Network Library (oneDNN)*
+
+To optimize deep learning applications on Intel® CPUs and GPUs, we integrated the oneAPI Deep Neural Network Library (oneDNN). 
+
+use this snippets for optimisation
+
+python
+import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '1'
+os.environ['DNNL_ENGINE_LIMIT_CPU_CAPABILITIES'] = '0'
+
+refer this file for intel oneAPI's oneDNN usage [a link](https://github.com/pragathish07/Speech_therapist/blob/main/Notebooks/speech_recognition/speech_recognition.ipynb)
+
+#### Using the intel's oneAPI and thier hugging face models really optimises and significantly improves the performance of our project
+
+That is all techincal details about this project
+
+#### why we choose this project
+
+The main reason is that people visiting therapy centers for the first time they get pretty nervous and tend to fill the self assesment form with a pressure of others or in a dilemma. This leads to varying result and has a high chances of assigned to unrealated therapy. 
+
+and especially in India, most of the hospitals doesn't even have their website , so We thought to develop this project now for only speech therapies , in future we expand  
+    to multiple fields.
+    
+
 ### What Does Speech Therapy Do?
 
 Speech therapy, also referred to as speech-language pathology, is a specialized field dedicated to assessing, diagnosing, and treating various communication disorders. These disorders encompass challenges related to speech, language, voice, fluency, and swallowing. Speech therapists collaborate with individuals across all age groups, from infants to seniors, to enhance their communication abilities and overall quality of life.
@@ -228,3 +244,5 @@ Our journey in developing the speech therapy platform has been one of profound d
 By prioritizing user experience and continuously improving our platform based on feedback and advancements in technology, we are committed to delivering impactful solutions that enhance communication skills and quality of life for individuals of all ages. Our dedication to social responsibility underscores our mission to leverage technology for the betterment of healthcare and society as a whole.
 
 In conclusion, our speech therapy platform stands as a testament to the transformative power of technology in improving healthcare outcomes and fostering greater equity and accessibility in speech therapy services.
+
+
