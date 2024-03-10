@@ -25,6 +25,7 @@
     <li>
       <a href="#about-the-project">About the Project</a>
       <ul>
+        <li><a href="screenshots">Screenshots</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href=#social-impact>Social Impact</a></li>
       </ul>
@@ -52,15 +53,20 @@ Welcome to our platform! Here, we integrate cutting-edge machine learning techno
 
 
 ## Screensots
+<div id="screenshots">
+ 1.Home Page
 <img src="./images/home.jpg">
+2.Dashboard (multiple user access)
 <img src="./images/dash.jpg">
+3.chatBot (ML & RAG)
 <img src="./images/bot.png">
+</div>
 
 #### Innovating Speech Therapy: Introducing Groundbreaking Tools for Assessment and Treatment,
 #### Intel® oneAPI is used to optimize the models to provide accurate and efficient prediction
 
 
-### Social Impact <img src="images/impact.png" alt="png" width="30">
+### Social Impact
 The "Diagnosify - Brain Disease Classification" project has the potential to create significant social impact in several ways:
 
 1. Early Detection and Treatment: By accurately predicting diseases like brain tumors, Alzheimer's, and Parkinson's Disease, the project can enable early detection and intervention. Early diagnosis often leads to more effective treatment options and improved patient outcomes.
@@ -69,14 +75,14 @@ The "Diagnosify - Brain Disease Classification" project has the potential to cre
 
 4. Collaborative Healthcare: The project promotes collaboration between medical professionals and technology. This synergy can lead to a more comprehensive understanding of diseases and their characteristics, fostering a collaborative approach to healthcare.
 
-### Built With <img src="images/built.png" alt="png" width="30">
+### Built With 
 Our platform harnesses the power of Django for backend infrastructure, Hugging Face for advanced natural language processing, Python for seamless integration, and Jupyter for interactive model development. Leveraging Intel's cloud infrastructure ensures optimal performance, empowering us to deliver an innovative solution for speech therapy with tailored functionalities for diverse users.
 
-* [![Django][django-logo]][django-url]
-* [![Hugging Face][hugging-face-logo]][hugging-face-url]
-* [![Python][python-logo]][python-url]
-* [![Jupyter][jupyter-logo]][jupyter-url]
-* Intel Developer Cloud (No specific logo provided)
+* Django(python)
+* hugging-face
+* Jupyter Notebook
+* Intel OneAPI oneDNN
+* Intel Developer Cloud 
 
 
 <!-- Hugging face  intel neural chat 7b -->
@@ -89,10 +95,10 @@ Intel Neural-Chat 7b is a conversational AI model developed by Intel, designed t
 ## Direct Preference Optimization: Aligning with Human Preferences
 A distinctive aspect of the NeuralChat 7b model's development was the application of the DPO algorithm. This algorithm, both stable and computationally lightweight, aimed to align model responses with human preferences. Leveraging a dataset containing 12k examples from the Orca style dataset, the team employed the llama-2–13b-chat model to generate responses, ensuring a nuanced understanding of acceptable versus rejected responses.
 
-## Inference Excellence
+# Inference Excellence
 Compatibility with Transformers ensures seamless inference using the NeuralChat model. Employing the same launcher code for inference in FP32 and enabling BF16 inference using Optimum-Habana further amplifies its inference performance, promising swift and accurate responses.
 
-## Supervised Fine-Tuning with Intel Extension for Transformers
+# Supervised Fine-Tuning with Intel Extension for Transformers
 Utilizing the mistralai/Mistral-7B-v0.1 as the base model, the Intel Extension for Transformers facilitates supervised fine-tuning. Leveraging the Open-Orca/SlimOrca dataset and DeepSpeed ZeRO-2, this process tailors the model to specific requirements while adhering to commercial-friendly licenses.
 
  *Import Libraries and Load Model*
