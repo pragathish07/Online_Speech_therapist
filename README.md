@@ -135,7 +135,7 @@ model = AutoModelForCausalLM.from_pretrained(model_id)
 <br>
 
 <!-- Intel one api -->
-## Intel® oneAPI
+# Intel® oneAPI
 Intel® OneAPI is a comprehensive development platform for building high-performance, cross-architecture applications. It provides a unified programming model, tools, and libraries that allow developers to optimize their applications for Intel® CPUs, GPUs, FPGAs, and other hardware. Intel® OneAPI includes support for popular programming languages like C++, Python, and Fortran, as well as frameworks for deep learning, high-performance computing, and data analytics. With Intel® OneAPI, developers can build applications that can run on a variety of hardware platforms, and take advantage of the performance benefits of Intel® architectures.
 <!-- Use of oneAPI in our project -->
 
