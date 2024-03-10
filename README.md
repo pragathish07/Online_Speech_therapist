@@ -101,10 +101,10 @@ Intel Neural-Chat 7b is a conversational AI model developed by Intel, designed t
 ## Direct Preference Optimization: Aligning with Human Preferences
 A distinctive aspect of the NeuralChat 7b model's development was the application of the DPO algorithm. This algorithm, both stable and computationally lightweight, aimed to align model responses with human preferences. Leveraging a dataset containing 12k examples from the Orca style dataset, the team employed the llama-2–13b-chat model to generate responses, ensuring a nuanced understanding of acceptable versus rejected responses.
 
-# Inference Excellence
+## Inference Excellence
 Compatibility with Transformers ensures seamless inference using the NeuralChat model. Employing the same launcher code for inference in FP32 and enabling BF16 inference using Optimum-Habana further amplifies its inference performance, promising swift and accurate responses.
 
-# Supervised Fine-Tuning with Intel Extension for Transformers
+## Supervised Fine-Tuning with Intel Extension for Transformers
 Utilizing the mistralai/Mistral-7B-v0.1 as the base model, the Intel Extension for Transformers facilitates supervised fine-tuning. Leveraging the Open-Orca/SlimOrca dataset and DeepSpeed ZeRO-2, this process tailors the model to specific requirements while adhering to commercial-friendly licenses.
 
  *Import Libraries and Load Model*
@@ -115,9 +115,9 @@ python
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, AutoProcessor
 
-# Import necessary libraries and modules
+## Import necessary libraries and modules
 
-# Define BitsAndBytesConfig with custom settings
+## Define BitsAndBytesConfig with custom settings
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_use_double_quant=True,
@@ -125,10 +125,10 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.bfloat16
 )
 
-# Define model identifier
+## Define model identifier
 model_id = "Intel/neural-chat-7b-v3-1"
 
-# Load pre-trained model using AutoModelForCausalLM
+## Load pre-trained model using AutoModelForCausalLM
 model = AutoModelForCausalLM.from_pretrained(model_id)
 
 <br>
@@ -139,7 +139,7 @@ model = AutoModelForCausalLM.from_pretrained(model_id)
 Intel® OneAPI is a comprehensive development platform for building high-performance, cross-architecture applications. It provides a unified programming model, tools, and libraries that allow developers to optimize their applications for Intel® CPUs, GPUs, FPGAs, and other hardware. Intel® OneAPI includes support for popular programming languages like C++, Python, and Fortran, as well as frameworks for deep learning, high-performance computing, and data analytics. With Intel® OneAPI, developers can build applications that can run on a variety of hardware platforms, and take advantage of the performance benefits of Intel® architectures.
 <!-- Use of oneAPI in our project -->
 
-### Use of oneAPI in our project
+## Use of oneAPI in our project
 
 In this section, we'll outline how we utilized various Intel® oneAPI libraries and frameworks to enhance the performance and efficiency of our models.
 
