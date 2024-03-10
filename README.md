@@ -46,10 +46,15 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
 <div align="center">
   
 </div>
 Welcome to our platform! Here, we integrate cutting-edge machine learning technology from Hugging Face to assist with speech therapy. Our tools are tailored for doctors, parents, and administrators, making speech assessment and treatment more accessible and efficient. With intuitive features, we simplify addressing speech challenges, ultimately enhancing communication skills.  advanced technology to revolutionize speech therapy and improve outcomes for all involved.
+
+
+ Innovating Speech Therapy: Introducing Groundbreaking Tools for Assessment and Treatment,
+ Intel® oneAPI is used to optimize the models to provide accurate and efficient predictio
 
 
 ## Screensots
@@ -62,8 +67,8 @@ Welcome to our platform! Here, we integrate cutting-edge machine learning techno
 <img src="./images/bot.png">
 </div>
 
-#### Innovating Speech Therapy: Introducing Groundbreaking Tools for Assessment and Treatment,
-#### Intel® oneAPI is used to optimize the models to provide accurate and efficient prediction
+<br>
+<br>
 
 
 ### Social Impact
@@ -74,7 +79,7 @@ The "Diagnosify - Brain Disease Classification" project has the potential to cre
 3. Reduced Misdiagnosis: Machine learning algorithms used in the project can help reduce instances of misdiagnosis by analyzing intricate patterns that might be challenging for human experts to identify. This can prevent unnecessary treatments and procedures while increasing the accuracy of diagnoses.
 
 4. Collaborative Healthcare: The project promotes collaboration between medical professionals and technology. This synergy can lead to a more comprehensive understanding of diseases and their characteristics, fostering a collaborative approach to healthcare.
-
+<br>
 ### Built With 
 Our platform harnesses the power of Django for backend infrastructure, Hugging Face for advanced natural language processing, Python for seamless integration, and Jupyter for interactive model development. Leveraging Intel's cloud infrastructure ensures optimal performance, empowering us to deliver an innovative solution for speech therapy with tailored functionalities for diverse users.
 
@@ -84,6 +89,7 @@ Our platform harnesses the power of Django for backend infrastructure, Hugging F
 * Intel OneAPI oneDNN
 * Intel Developer Cloud 
 
+<br>
 
 <!-- Hugging face  intel neural chat 7b -->
 ## Hugging face  intel neural chat 7b
@@ -125,6 +131,8 @@ model_id = "Intel/neural-chat-7b-v3-1"
 # Load pre-trained model using AutoModelForCausalLM
 model = AutoModelForCausalLM.from_pretrained(model_id)
 
+<br>
+<br>
 
 <!-- Intel one api -->
 ## Intel® oneAPI
@@ -176,7 +184,7 @@ Speech therapy, also referred to as speech-language pathology, is a specialized 
 - *Education and Support*: In addition to direct therapy sessions, speech therapists educate clients and their families on communication disorders, imparting practical strategies for improving communication in various settings such as home, school, and social environments. Furthermore, they provide emotional support and counseling to individuals and families navigating the challenges associated with communication disorders.
 .
 
-
+<br>
 
 ## How we built it 
 These are the steps involved in making this project: 
@@ -193,7 +201,7 @@ These are the steps involved in making this project:
 * Testing Predictions
 
 
-
+<br>
 
 ## What We Learned
 
@@ -210,7 +218,8 @@ These are the steps involved in making this project:
 - *Social Responsibility*: Building a platform with the potential to positively impact individuals' lives reinforced our sense of social responsibility. We recognized the power of technology to drive positive change in healthcare and society, inspiring us to strive for greater inclusivity and equity in our work.
 
 
-
+<br>
+<br>
 ## Conclusion 
 
 Our journey in developing the speech therapy platform has been one of profound discovery and innovation. Through the integration of cutting-edge technologies such as machine learning, user-centric design principles, hardware optimization expertise, and the utilization of Intel oneAPI and oneDNN, we have created a solution that not only addresses the needs of speech therapists and their clients but also contributes to greater accessibility and inclusivity in healthcare.
