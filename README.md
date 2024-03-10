@@ -220,7 +220,8 @@ These are the steps involved in making this project:
 
 <br>
 <br>
-##  Conclusion 
+
+ ## Conclusion
 
 Our journey in developing the speech therapy platform has been one of profound discovery and innovation. Through the integration of cutting-edge technologies such as machine learning, user-centric design principles, hardware optimization expertise, and the utilization of Intel oneAPI and oneDNN, we have created a solution that not only addresses the needs of speech therapists and their clients but also contributes to greater accessibility and inclusivity in healthcare.
 
